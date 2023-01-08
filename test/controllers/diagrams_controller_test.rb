@@ -17,7 +17,7 @@ class DiagramsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create diagram" do
     assert_difference('Diagram.count') do
-      post diagrams_url, params: { diagram: { description: @diagram.description, name: @diagram.name, source_code: @diagram.source_code, type: @diagram.type } }
+      post diagrams_url, params: { diagram: { description: @diagram.description, name: @diagram.name, source_code: @diagram.source_code} }
     end
 
     assert_redirected_to diagram_url(Diagram.last)
@@ -34,7 +34,7 @@ class DiagramsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update diagram" do
-    patch diagram_url(@diagram), params: { diagram: { description: @diagram.description, name: @diagram.name, source_code: @diagram.source_code, type: @diagram.type } }
+    patch diagram_url(@diagram), params: { diagram: { description: @diagram.description, name: @diagram.name, source_code: @diagram.source_code} }
     assert_redirected_to diagram_url(@diagram)
   end
 

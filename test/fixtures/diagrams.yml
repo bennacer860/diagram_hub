@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  type: 
   description: MyText
   source_code: MyText
 
 two:
   name: MyString
-  type: 
   description: MyText
   source_code: MyText
