@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2023_01_08_161214) do
 
   create_table "diagrams", force: :cascade do |t|
     t.string "name"
-    t.string "type"
     t.text "description"
     t.text "source_code"
     t.datetime "created_at", precision: 6, null: false

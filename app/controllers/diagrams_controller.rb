@@ -65,6 +65,6 @@ class DiagramsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diagram_params
-      params.require(:diagram).permit(:name, :type, :description, :source_code)
+      params.require(:diagram).permit(:name, :description, :source_code)
     end
 end
