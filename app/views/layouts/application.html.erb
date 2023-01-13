@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DiagramHub</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,6 +16,25 @@
   </head>
 
   <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <!--Links-->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Diagrams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Container -->
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,2 +1,9 @@
-@import ‘bootstrap/dist/css/bootstrap’;
+@import 'bootstrap/dist/css/bootstrap';
 
+.card {
+  display: inline-block;
+}
+
+.card-columns {
+  column-count: 4;
+}
