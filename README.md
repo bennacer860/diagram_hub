@@ -4,4 +4,4 @@ The project main goal is to build a website that acts as a software engineering 
 
 Here is a proof of concept using mermaid.js https://mermaid.js.org/config/usage.html
 
-<img width="1103" alt="Screen Shot 2023-01-08 at 1 31 18 PM" src="https://user-images.githubusercontent.com/205614/211212786-60143348-1e13-4b43-8216-6d10655c32db.png">
+<img width="1469" alt="Screen Shot 2023-01-12 at 11 41 08 PM" src="https://user-images.githubusercontent.com/205614/212239021-4a2756ae-9af9-403b-948e-b8c0667731c7.png">
