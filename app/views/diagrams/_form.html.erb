@@ -1,4 +1,7 @@
-<%= form_with(model: diagram) do |form| %>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.22.1/min/vs/loader.js"></script>
+
+
+<%= form_with(model: diagram, id: "new_diagram_form") do |form| %>
   <% if diagram.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(diagram.errors.count, "error") %> prohibited this diagram from being saved:</h2>
@@ -23,10 +26,36 @@
 
   <div class="field">
     <%= form.label :source_code %>
-    <%= form.text_area :source_code %>
+    <%= form.hidden_field :source_code, :value => @diagram&.source_code, :id => "source_code" %>
+    <div class="row">
+      <div class='col'>
+        <div id="editor"  style="height:500px;border:1px solid #ccc"></div>
+      </div>
+      <div class="col">
+        <pre class='mermaid'><%= @diagram.source_code %></pre>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<script>
+require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.34.1/min/vs' } });
+require(['vs/editor/editor.main'], function() {
+  document.getElementById('source_code').value;
+    var editor = monaco.editor.create(document.getElementById('editor'), {
+        value: document.getElementById('source_code').value,
+        automaticLayout: true,
+        language: 'javascript',
+        theme: 'vs-dark'
+    });
+  const form = document.getElementById("new_diagram_form");
+          form.addEventListener("formdata", e => {
+            e.formData.set("diagram[source_code]", editor.getValue());
+          });
+});
+
+</script>
+
