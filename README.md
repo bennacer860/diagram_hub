@@ -1,5 +1,11 @@
 # README
 
+- intalled nvm  node version manager
+- intall Yarn correct version #
+- add boostrap through Yarn
+- Yarn add @popperjs/coreD
+
+
 The project main goal is to build a website that acts as a software engineering bank for all sort of diagram. The diagrams can be rate, discussed and have multiple version.
 
 Here is a proof of concept using mermaid.js https://mermaid.js.org/config/usage.html
