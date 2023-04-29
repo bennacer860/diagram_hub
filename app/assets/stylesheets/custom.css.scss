@@ -8,3 +8,21 @@
   column-count: 4;
   column-gap: 0.25rem
 }
+
+body {
+    padding-top: 65px;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em;
+}
+
+.logo {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  text-decoration: none;
+  color: #080808;
+}
