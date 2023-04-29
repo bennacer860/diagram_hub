@@ -11,14 +11,23 @@
     <%= stylesheet_link_tag 'application', media: 'all'%>
     <%= javascript_pack_tag 'application' %>
     <%= favicon_link_tag asset_path('apple-icon-57x57.png') %>
+    <!-- Google tag (gtag.js) -->
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6DYKG3NLV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-B6DYKG3NLV');
+    </script>
   </head>
 
   <body>
-    <!-- Navigation Bar -->
-    
-
-
-<div class="p-3 text-center bg-white border-bottom fixed-top">
+  
+  <!-- Navigation Bar -->
+  <div class="p-3 text-center bg-white border-bottom fixed-top">
     <div class="container-fluid">
       <div class="row">
         <!-- Left elements -->
@@ -70,18 +79,14 @@
       </div>
     </div>
   </div>
-  <!-- Jumbotron -->
-
-<!--end Main Navigation-->
+  <!--end Navigation Bar -->
 
 
 
 
   <!--Main layout-->
-
-
   <div class="container">
-  <%= yield %>
+    <%= yield %>
   </div>
 
 
