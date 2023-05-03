@@ -22,6 +22,7 @@ class DiagramsController < ApplicationController
   # POST /diagrams or /diagrams.json
   def create
     @diagram = Diagram.new(diagram_params)
+    @diagram.user = current_user
 
     respond_to do |format|
       if @diagram.save
@@ -65,6 +66,6 @@ class DiagramsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diagram_params
-      params.require(:diagram).permit(:name, :description, :source_code)
+      params.require(:diagram).permit(:name, :description, :source_code, :user_id)
     end
 end

@@ -10,4 +10,11 @@ class Diagram < ApplicationRecord
       "#{'&nbsp;'*leading_spaces_size}#{line}"
     end.join('<br/>')
   end
+
+
+  belongs_to :user
+  validates :user_id, presence: true
+  #before_save { self.email = email.downcase }
+
+  
 end

@@ -1,0 +1,12 @@
+Step 26: Show User Info in Articles
+
+- NEED TO CREATE a diagram in association avec user(devise)
+- apply build function
+- 3/05/2023 fixed links -> logic of sign in up
+- added controller -> current_user
+
+next 04/05/2023:
+- create admin role  
+- in order to see-> edit/delete(buttons) diagrams
+
+
