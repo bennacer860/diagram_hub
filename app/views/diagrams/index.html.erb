@@ -1,16 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="card-columns">
+<br>
+<br>
+
+<% if current_user.present? %>
+  Your current role is: <%= current_user.role %>
+<% end %>
 
 <% @diagrams.each do |diagram| %>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><%= diagram.name %></h5> 
-      <h5 class="card-title"><%= diagram.user.email if diagram.user %></h5>
+      <h8 class="card-title"> by <%= diagram.user.email if diagram.user %> ( <%= diagram.user.role %> ) </h8>
       <p class="card-text"><pre class='mermaid'><%= diagram.source_code %></pre></p>
       <p class="card-text"><%= link_to 'Show', diagram, :class => "btn btn-sm btn-outline-primary" %>
 
-      <% if diagram.user == current_user  %>
+      <% if diagram.user == current_user || current_user&.admin? %>
         <%= link_to 'Edit', edit_diagram_path(diagram), :class => "btn btn-sm btn-outline-secondary" %>
         <%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-danger" %></p>
       <% end %>

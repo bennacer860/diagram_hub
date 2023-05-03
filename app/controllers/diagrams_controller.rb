@@ -50,8 +50,9 @@ class DiagramsController < ApplicationController
 
   # DELETE /diagrams/1 or /diagrams/1.json
   def destroy
+    if current_user == @diagram.user || current_user.admin?
+    end
     @diagram.destroy
-
     respond_to do |format|
       format.html { redirect_to diagrams_url, notice: "Diagram was successfully destroyed." }
       format.json { head :no_content }

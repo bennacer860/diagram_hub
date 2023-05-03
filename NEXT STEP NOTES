@@ -4,12 +4,17 @@ Step 26: Show User Info in Articles
 - apply build function
 - 3/05/2023 fixed links -> logic of sign in up
 - added controller -> current_user
-
+- 
 next 04/05/2023:
 - need to check the forking
 - create admin role  
 - in order to see-> edit/delete(buttons) diagrams
 - refactored navbar(done)
 
-- user can edit/destroy his/her diagrams only(in progress)
+
+- user can edit/destroy his/her diagrams only(in progress) either owner or 
+- is allowed to edit (are your the owner of the diagram or admin-> true or false)
+- before chec mehtod  
+
+# generate code randomy
 
