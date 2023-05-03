@@ -6,7 +6,10 @@ Step 26: Show User Info in Articles
 - added controller -> current_user
 
 next 04/05/2023:
+- need to check the forking
 - create admin role  
 - in order to see-> edit/delete(buttons) diagrams
+- refactored navbar(done)
 
+- user can edit/destroy his/her diagrams only(in progress)
 

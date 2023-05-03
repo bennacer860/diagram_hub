@@ -1,11 +1,17 @@
-<p id="notice"><%= notice %></p>
-<button type="button" class="btn btn-primary">Primary</button>
-
+<div>
 <p>
   <strong>Name:</strong>
   <%= @diagram.name %>
 </p>
+</div>
 
+
+<div>
+<p>
+  <strong>Name:</strong>
+  <%= @diagram.name %>
+</p>
+</div>
 <p>
   <strong>Description:</strong>
   <%= @diagram.description %>
@@ -17,5 +23,8 @@
   <%= @diagram.format_source_code_to_html&.html_safe  %>
 </p>
 
+<% if user_signed_in? %> |
 <%= link_to 'Edit', edit_diagram_path(@diagram) %> |
 <%= link_to 'Back', diagrams_path %>
+<%= link_to 'Destroy', @diagram, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-danger" %></p>
+<% end %> 

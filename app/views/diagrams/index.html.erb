@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <div class="card-columns">
   <% @diagrams.shuffle.each do |diagram| %>
   <div class="card">
@@ -9,9 +7,11 @@
       <h5 class="card-title"><%= diagram.name %></h5>
       <p class="card-text"><pre class='mermaid'><%= diagram.source_code %></pre></p>
       <p class="card-text"><%= link_to 'Show', diagram, :class => "btn btn-sm btn-outline-primary" %>
-      <%= link_to 'Edit', edit_diagram_path(diagram), :class => "btn btn-sm btn-outline-secondary" %>
-      <%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-danger" %></p>
 
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_diagram_path(diagram), :class => "btn btn-sm btn-outline-secondary" %>
+        <%= link_to 'Destroy', diagram, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-danger" %></p>
+      <% end %>
       <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(diagram.created_at) %> ago</small></p>
     </div>
   </div>
