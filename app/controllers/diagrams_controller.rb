@@ -1,5 +1,6 @@
 class DiagramsController < ApplicationController
   before_action :set_diagram, only: %i[ show edit update destroy ]
+  before_action :require_permission, only: [:edit, :update, :destroy]
 
   # GET /diagrams or /diagrams.json
   def index
@@ -50,14 +51,19 @@ class DiagramsController < ApplicationController
 
   # DELETE /diagrams/1 or /diagrams/1.json
   def destroy
-    if current_user == @diagram.user || current_user.admin?
-    end
-    @diagram.destroy
     respond_to do |format|
       format.html { redirect_to diagrams_url, notice: "Diagram was successfully destroyed." }
       format.json { head :no_content }
     end
   end
+
+  def require_permission
+    diagram = Diagram.find(params[:id]).user
+    if diagram.user != current_user
+      redirect_to diagram_path(diagram), flash: { error: "You do not have permission to do that." }
+    end
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -68,5 +74,12 @@ class DiagramsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def diagram_params
       params.require(:diagram).permit(:name, :description, :source_code, :user_id)
+    end
+
+    def require_permission
+      diagram = Diagram.find(params[:id])
+      if diagram.user != current_user
+        redirect_to diagram_path(diagram), flash: { error: "You do not have permission to do that." }
+      end
     end
 end
