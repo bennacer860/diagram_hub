@@ -5,18 +5,18 @@ Step 26: Show User Info in Articles
 - 3/05/2023 fixed links -> logic of sign in up
 - added controller -> current_user
 - 
-next 04/05/2023:
+next 03/05/2023:
 - need to check the forking
 - create admin role  
 - in order to see-> edit/delete(buttons) diagrams
 - refactored navbar(done)
-
-
 - user can edit/destroy his/her diagrams only(in progress) either owner or 
 - is allowed to edit (are your the owner of the diagram or admin-> true or false)
 - before chec mehtod  
-
 # generate code randomy
 
-- tagging -> check gmail links
+04/05/2023
+--- tagging -> check gmail links
+--- prob Forking -> pull request
+- next way of dbusiness-> new branch from "main" then merge
 
