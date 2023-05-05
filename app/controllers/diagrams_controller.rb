@@ -1,5 +1,6 @@
 class DiagramsController < ApplicationController
   before_action :set_diagram, only: %i[ show edit update destroy ]
+  before_action :require_permission, only: [:edit, :update, :destroy]
 
   # GET /diagrams or /diagrams.json
   def index
@@ -22,6 +23,7 @@ class DiagramsController < ApplicationController
   # POST /diagrams or /diagrams.json
   def create
     @diagram = Diagram.new(diagram_params)
+    @diagram.user = current_user
 
     respond_to do |format|
       if @diagram.save
@@ -50,7 +52,6 @@ class DiagramsController < ApplicationController
   # DELETE /diagrams/1 or /diagrams/1.json
   def destroy
     @diagram.destroy
-
     respond_to do |format|
       format.html { redirect_to diagrams_url, notice: "Diagram was successfully destroyed." }
       format.json { head :no_content }
@@ -65,6 +66,13 @@ class DiagramsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diagram_params
-      params.require(:diagram).permit(:name, :description, :source_code)
+      params.require(:diagram).permit(:name, :description, :source_code, :user_id)
+    end
+
+    def require_permission
+      diagram = Diagram.find(params[:id])
+      if diagram.user != current_user
+        redirect_to diagram_path(diagram), flash: { error: "You do not have permission to do that." }
+      end
     end
 end

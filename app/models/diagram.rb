@@ -1,5 +1,6 @@
 class Diagram < ApplicationRecord
-
+  belongs_to :user
+  validates :user_id, presence: true
 
   def format_source_code_to_html
     return if source_code.nil?
@@ -9,5 +10,9 @@ class Diagram < ApplicationRecord
       leading_spaces_size = line[/\A */].size
       "#{'&nbsp;'*leading_spaces_size}#{line}"
     end.join('<br/>')
-  end
+end
+
+
+
+  
 end
