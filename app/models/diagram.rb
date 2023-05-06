@@ -1,6 +1,7 @@
 class Diagram < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
+  acts_as_taggable_on :tags
 
   def format_source_code_to_html
     return if source_code.nil?

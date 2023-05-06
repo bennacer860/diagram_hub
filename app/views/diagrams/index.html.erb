@@ -1,12 +1,18 @@
 
 <div class="card-columns">
   <br><p id="notice"><%= notice %></p>
-
   <br>
+  
+    <div id= "tag_cloud">
+    <h3>Available Tags</h3> 
+      <% tag_cloud Diagram.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
 
-  <% if current_user.present? %>
-    Your current role is: <%= current_user.role %> <%= current_user.email %>
-  <% end %>
+    <% if current_user.present? %>
+      Your current role is: <%= current_user.role %> <%= current_user.email %>
+    <% end %>
 
     <% @diagrams.shuffle.each do |diagram| %>
       <div class="card">
@@ -21,7 +27,12 @@
               <% end %>
             <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(diagram.created_at) %> ago</small></p>
             <p class="card-text"><small class="text-muted">created by <%= diagram.user.email if diagram.user %></small></p>
-        </div>
+             
+            <% if diagram.tag_list %>
+              <p class="card-text"><small class="text-muted">tagged for 
+              <%= diagram.tag_list.map { |tag| link_to tag, tag_path(tag: tag) }.join(', ').html_safe %></small></p>
+            <% end %>   
+          </div>
       </div>
     <% end %>    
 </div>

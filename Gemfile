@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 #Use Devise for SignIn/Up/Out
 gem 'devise'
 
+#Use of tagging
+gem 'acts-as-taggable-on', '~> 9.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

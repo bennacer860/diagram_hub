@@ -4,7 +4,15 @@ class DiagramsController < ApplicationController
 
   # GET /diagrams or /diagrams.json
   def index
-    @diagrams = Diagram.all
+    if params[:tag] 
+      @diagrams = Diagram.tagged_with(params[:tag]) 
+    else
+      @diagrams = Diagram.all
+    end
+  end
+
+  def tag_cloud
+    @tags = Diagram.tag_counts_on(:tags)
   end
 
   # GET /diagrams/1 or /diagrams/1.json
@@ -58,6 +66,17 @@ class DiagramsController < ApplicationController
     end
   end
 
+    #Use Case 2: As a user, I want to be able to tag a model with a specific tag, then search for all of the diagrams by their tag
+
+  def tagged
+    if params[:tag].present?
+      @diagrams = Diagram.tagged_with(params[:tag])
+    else
+      @diagrams = Diagram.all
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_diagram
@@ -66,7 +85,7 @@ class DiagramsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diagram_params
-      params.require(:diagram).permit(:name, :description, :source_code, :user_id)
+      params.require(:diagram).permit(:name, :description, :source_code, :user_id, :tag_list)
     end
 
     def require_permission

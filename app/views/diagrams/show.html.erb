@@ -23,8 +23,21 @@
   <%= @diagram.format_source_code_to_html&.html_safe  %>
 </p>
 
+
 <% if user_signed_in? %> |
 <%= link_to 'Edit', edit_diagram_path(@diagram) %> |
 <%= link_to 'Back', diagrams_path %>
 <%= link_to 'Destroy', @diagram, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-danger" %></p>
 <% end %> 
+
+
+<% if @diagram.tag_list.present? %>
+  <p>
+    <strong>Tags:</strong>
+
+<br>
+<%= @diagram.tag_list.map { |tag| link_to tag, tagged_path(tag: tag) }.join(', ').html_safe %>
+</p>
+<% else %>
+  <p>No available tags.</p>
+<% end %>

@@ -1,0 +1,11 @@
+<br>
+<br>
+<br>
+
+<h1>Search Diagrams by Tag</h1>
+
+<% @diagrams.each do |diagram| %>
+  <% diagram.tag_list.each do |tag| %>
+    <%= link_to tag, tagged_path(tag: tag) %> 
+  <% end %>
+<% end %>

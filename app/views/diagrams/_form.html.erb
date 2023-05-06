@@ -24,7 +24,7 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+    <div class="field">
     <%= form.label :source_code %>
     <%= form.hidden_field :source_code, :value => @diagram&.source_code, :id => "source_code" %>
     <div class="row">
@@ -35,6 +35,11 @@
         <pre class='mermaid'><%= @diagram.source_code %></pre>
       </div>
     </div>
+  </div>
+
+  <div class="field">
+  <%= form.label :tag_list, "Tags (separated by commas)"%>
+  <%= form.text_field :tag_list %>
   </div>
 
   <div class="actions">
