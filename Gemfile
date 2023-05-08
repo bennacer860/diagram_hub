@@ -20,6 +20,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#tagging feature
+gem 'bootstrap-tagsinput-rails'
+
+
 #Use Devise for SignIn/Up/Out
 gem 'devise'
 

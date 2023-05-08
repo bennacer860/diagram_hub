@@ -68,6 +68,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
+    bootstrap-tagsinput-rails (0.4.2.1)
+      railties (>= 3.1)
     brakeman (5.4.0)
     builder (3.2.4)
     bundler-audit (0.9.1)
@@ -244,6 +246,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 9.0)
   bootsnap (>= 1.4.4)
+  bootstrap-tagsinput-rails
   brakeman
   bundler-audit
   byebug
